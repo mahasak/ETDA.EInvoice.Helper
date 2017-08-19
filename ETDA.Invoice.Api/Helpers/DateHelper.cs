@@ -5,30 +5,23 @@ namespace ETDA.Invoice.Api.Helpers
 {
     public static class DateHelper
     {
-        public static DateTime Convert2Date(string dateTime)
+        public static DateTime ConvertToDateTime(string dateTime)
         {
-            // dd/MM/yyyy
-            string[] array = dateTime.Split('/');
-            string nDateTime = array[2] + '-' + array[1] + '-' + array[0];
-            return DateTime.Parse(nDateTime);
+            if (string.IsNullOrEmpty(dateTime)) throw new ArgumentException(dateTime);
+
+            var dateTimeFormat = new CultureInfo("th-TH", false).DateTimeFormat;
+            return Convert.ToDateTime(dateTime, dateTimeFormat);
         }
 
-        public static DateTime Convert2DateFromTH(string dateTime)
+        public static string GetThaiDateText(string date)
         {
-            // dd/MM/yyyy TH
-            string[] array = dateTime.Split('/');
-            string nDateTime = array[2] + '-' + array[1] + '-' + array[0];
-            return DateTime.Parse(nDateTime, new CultureInfo("th-TH"));
-        }
-
-        public static string Convert2En(string dateTime)
-        {
-            return DateTime.Parse(dateTime).ToString("dd/MM/yyyy", new CultureInfo("en-US"));
-        }
-
-        public static string Convert2Th(string dateTime)
-        {
-            return DateTime.Parse(dateTime).ToString("dd/MM/yyyy", new CultureInfo("th-TH"));
+            if (!string.IsNullOrEmpty(date))
+            {
+                var cultureInfo = new CultureInfo("th-TH");
+                var datetime = DateHelper.ConvertToDateTime(date);
+                return datetime.ToString("dd MMMM yyyy", new CultureInfo("th-TH").DateTimeFormat);
+            }
+            return null;
         }
     }
 }
