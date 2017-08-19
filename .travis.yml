@@ -1,0 +1,10 @@
+language: csharp
+solution: ETDA.Invoice.Api.sln
+mono: none
+dotnet: 2.0.0
+dist: trusty
+script:
+ - dotnet restore
+ - dotnet build
+ - dotnet test ETDA.Invoice.Api.UnitTests/ETDA.Invoice.Api.UnitTests.csproj
+ - dotnet pack

@@ -1,7 +1,6 @@
-﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ETDA.XMLGenerator.UnitTests
+namespace ETDA.Invoice.Api.UnitTests
 {
     [TestClass]
     public class UnitTest1
