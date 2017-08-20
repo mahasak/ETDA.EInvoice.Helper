@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ETDA.Invoice.Api.Interface
 {
-    interface IInvoiceXmlDocument
+    public interface IInvoiceXmlDocument
     {
         string invoiceId { get; set; }
         string invoiceName { get; set; }
