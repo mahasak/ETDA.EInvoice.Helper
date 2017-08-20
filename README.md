@@ -6,7 +6,7 @@ Electronic Invoice API as described in [EInvoiceV2](https://github.com/ETDA/e-Ta
 
 Make sure you have .NET Core 2.0 SDK installed.
 
-In macOS that would be `brew install dotnet-sdk`
+In macOS that would be `brew cask install dotnet-sdk`
 
 Then clone the project and do these 
 
