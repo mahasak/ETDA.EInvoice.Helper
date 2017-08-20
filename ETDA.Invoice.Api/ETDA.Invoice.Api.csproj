@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>0.1.7</Version>
+    <Version>0.1.8</Version>
     <Description>ETDA.Invoice.Api is a library to support ETDA effort on pushing e-Invoice in Thailand</Description>
     <Authors>Mahasak Pijittum, Varokas Panusuwan, Nuttapong Nunpan</Authors>
     <Company>Citizen of Thailand</Company>
@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/mahasak/ETDA.Invoice.Api</RepositoryUrl>
     <Copyright>Creative Common</Copyright>
     <PackageLicenseUrl>https://creativecommons.org/</PackageLicenseUrl>
-    <PackageReleaseNotes>- Move entity to use Interface so we can separate layers from ETDA desktop app</PackageReleaseNotes>
+    <PackageReleaseNotes>- Add travis releases</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
