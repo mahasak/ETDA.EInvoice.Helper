@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ETDA.Invoice.Api.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ETDA.Invoice.Api.Entities
 {
-    public class InvoiceXmlObj
+    public class InvoiceXmlDocument : IInvoiceXmlDocument
     {
         public string invoiceId { get; set; }
         public string invoiceName { get; set; }
@@ -62,5 +63,4 @@ namespace ETDA.Invoice.Api.Entities
         public string invoiceCalculatedAmount { get; set; }
         public string invoiceTaxBasisTotalAmount { get; set; }
     }
-
 }
