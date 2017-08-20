@@ -258,7 +258,7 @@ namespace ETDA.Invoice.Api.Generator
             absolutepath = path;
             string name = Item.Rows[0]["invoice_name"].ToString();
             string cancleReason = Item.Rows[0]["purpose"].ToString();
-            DateTime dateTime = DateHelper.Convert2Date(Item.Rows[0]["issue_date"].ToString());
+            DateTime dateTime = DateHelper.ConvertToDateTime(Item.Rows[0]["issue_date"].ToString());
 
             if (!string.IsNullOrEmpty(cancleReason))
             {

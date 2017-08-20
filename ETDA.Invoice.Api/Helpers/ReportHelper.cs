@@ -154,7 +154,7 @@ namespace ETDA.Invoice.Api.Helpers
             foreach (DataRow dr in reference.Rows)
             {
                 doc_id = doc_id + dr["document_id"].ToString() + ",";
-                doc_date = doc_date + getThaiDate(dr["document_date"].ToString()) + ",";
+                doc_date = doc_date + DateHelper.GetThaiDateText(dr["document_date"].ToString()) + ",";
             }
 
             doc_reference.Add(doc_id.Substring(0, doc_id.Length - 1));
@@ -163,31 +163,6 @@ namespace ETDA.Invoice.Api.Helpers
             return doc_reference;
         }
 
-        public static string getThaiDate(string date)
-        {
-            string dateThai = "";
-            if (!string.IsNullOrEmpty(date))
-            {
-                DateTime datetime = DateHelper.Convert2Date(date);
-
-                ThaiBuddhistCalendar cal = new ThaiBuddhistCalendar();
-                string[] thaiMonth = { "มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม"
-                                    ,"มิถุนายน","กรกฏาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม" };
-                DateTime thai = new DateTime(cal.GetYear(datetime), cal.GetMonth(datetime), datetime.Day);
-                string culture_th = System.Globalization.CultureInfo.CurrentCulture.DisplayName;
-                if (culture_th == "Thai (Thailand)")
-                {
-                    string year = thai.ToString("yyyy", new System.Globalization.CultureInfo("th-TH"));
-                    dateThai = thai.Day + " " + thaiMonth[thai.Month - 1] + " " + year;
-                }
-                else
-                {
-                    dateThai = thai.Day + " " + thaiMonth[thai.Month - 1] + " " + thai.Year;
-                }
-            }
-            else { dateThai = null; }
-
-            return dateThai;
-        }
+        
     }
 }
