@@ -4,7 +4,15 @@ mono: none
 dotnet: 2.0.0
 dist: trusty
 script:
- - dotnet restore
- - dotnet build
- - dotnet test ETDA.Invoice.Api.UnitTests/ETDA.Invoice.Api.UnitTests.csproj
- - dotnet pack
+- dotnet restore
+- dotnet build
+- dotnet test ETDA.Invoice.Api.UnitTests/ETDA.Invoice.Api.UnitTests.csproj
+- dotnet pack
+deploy:
+  provider: releases
+  api_key:
+    secure: BtG5OXWcB30Jlv6RLgS5vto4eHDqLmPOwfyQWDLKtKU1khYjTotdc9CyiFkmBttKY9jL7w8E6B+chixsfETmfVdf2oFCRlifZ3pVtWLbKdOaE2YMS8cMWEsPg6tCK18aykQoTLkGEmOJP5FDPb9WDvybqzSxqaLdB/esrwzDZJi/CdWgAZqHdNqiE6pGoD6lDC30iU0Vt4eLBDLMQ9gYmfPj0Md4s4dwssrqsVJSJlbqrXv4ed/++J/wffag5/T2CTU29r+Ta2EER6LQhw2c2DFOdPw2XuSp2PM9QhZkLQ+T4NWx68F8kxAOhv6o503Ai1SUuiz00TSdrlP9i0PkCiy5t/4ERL3vAs4oSVyQmmxy+zuZauV+r0xwpWOAmNxHdTdVgSminHUW8si54Erw8vZESVuXu6BwwLkG8IL7YyuoSl4zqhgxiHheR259xXKppVnWPtWfp6mjvMCoZhKS38jwJid5k4pMOn8SnRff1LcBAFiqjB9NmGcoz19a8rSEL6HIl1xpbpidYegmUnkzsq9D51zcVwV5qGDI0aBmGHEaojtCr65j/4vLzKZ41yhBMVeucqMmRXgKNjTzXfM50BxfaqnPzVbo6VyIsg0qRK022ZKmhreFKFIEa4C8JqpiaEJmuFavZlqby4IbnUB4weYgIchdwsGTWvf54znUlrQ=
+  file: '*.nupkgs'
+  on:
+    repo: mahasak/ETDA.Invoice.Api
+    branch: master
