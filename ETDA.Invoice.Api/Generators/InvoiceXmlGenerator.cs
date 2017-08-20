@@ -18,7 +18,7 @@ namespace ETDA.Invoice.Api.Generator
         private DataTable seller;
         private string templatePath = "Resources\\template_debit.xml";
         private string typeCode;
-        private InvoiceXmlObj XmlObj = new InvoiceXmlObj();
+        private InvoiceXmlDocument XmlObj = new InvoiceXmlDocument();
 
         public InvoiceXmlGenerator(DataTable buyer, DataTable seller, DataTable reference, DataTable item, string invoiceId, string path)
         {
